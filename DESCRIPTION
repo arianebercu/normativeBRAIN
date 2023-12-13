@@ -1,0 +1,23 @@
+Package: normativeBRAIN
+Type: Package
+Title: Application for normative curves of brain volumes using Weights for Incomplete Longitudinal Data and Quantile Regression
+Version: 1.0
+Date: 2023-12-13
+Author: Ariane Bercu
+Maintainer: Ariane Bercu <ariane.bercu@u-bordeaux.fr>
+Description: Normative curves of brain volumes using package weightQuant : (i.e Viviane Philipps) estimation of observation-specific weights for incomplete longitudinal data and bootstrap procedure for weighted quantile regressions.
+License: GPL (>= 2.0)
+Depends: quantreg, foreach, doParallel
+LazyLoad: yes
+LazyData: true
+Imports: 
+    bslib,
+    dplyr,
+    ggExtra,
+    ggplot2,
+    readtext,
+    shiny,
+    shinydashboard,
+    shinyWidgets,
+    splines
+RoxygenNote: 7.2.3

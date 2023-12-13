@@ -1,0 +1,18 @@
+The application proposed on this page has been described in the paper [REF]. 
+For further details on the data you can refer to the Memento Cohort, see paper by Dufouil et al [1] and
+the website cohort : https://www.memento-cohort.fr/. 
+
+The analysis were performed on R/4.2.1 using packages weightQuant [2] and quantreg [3]. 
+
+
+
+Referencies : 
+
+[1] Dufouil C, Dubois B, Vellas B, Pasquier F, Blanc F, Hugon J, et al. 
+Cognitive and imaging markers in non-demented subjects attending a memory clinic: 
+study design and baseline findings of the MEMENTO cohort. Alz Res Therapy. déc 2017;9(1):67. 
+[2] Jacqmin-Gadda H, Rouanet A, Mba RD, Philipps V, Dartigues JF. 
+Quantile regression for incomplete longitudinal data with selection by death.
+Stat Methods Med Res. sept 2020;29(9):2697‑716. 
+[3] Koenker R. Quantile regression. Cambridge ; New York: Cambridge University Press;
+2005. 349 p. (Econometric Society monographs). 
