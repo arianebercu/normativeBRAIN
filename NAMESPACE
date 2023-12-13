@@ -1,5 +1,5 @@
 exportPattern("^[[:alpha:]]+")
-import("quantreg","rq")
+importFrom("quantreg","rq")
 import(stringr)
 import(splines)
 import(bslib)
