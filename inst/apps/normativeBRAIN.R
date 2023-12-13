@@ -12,8 +12,8 @@ library(readtext)
 library(bslib)
 library(dplyr)
 library(ggplot2)
-library(ggExtra)
-library(weightQuant)
+#library(ggExtra)
+library(normativeBRAIN)
 library(splines)
 library(shinyWidgets)
 
@@ -151,8 +151,8 @@ server<-function(input, output) {
 
      # data <- read.csv("data/memento_SEXE_QYNAPSE_120122.txt", sep="")
      # data$AGE_VIS_cr<-(data$AGE_VIS-70)/9
-     # essai<-weightQuant::prepare_data(data=data,volume=my_data$volume,rescale=F)
-     # model_data<-weightQuant::weightsIMD(data=essai,Y=my_data$volume,X1=c("SEX","AGE0_cr"),
+     # essai<-normativeBRAIN::prepare_data(data=data,volume=my_data$volume,rescale=F)
+     # model_data<-normativeBRAIN::weightsIMD(data=essai,Y=my_data$volume,X1=c("SEX","AGE0_cr"),
      #                                     X2=NULL,subject="NUM_ID",
      #                                     death="death",time="time",name="w_imd")
      # 
@@ -219,19 +219,19 @@ server<-function(input, output) {
                        AGE_VIS_cr=(seq(input$AGE_VIS[1],input$AGE_VIS[2],length.out=100)-70)/9,
                        SEX=rep(0,100),
                        NUM_ID=rep(1,100))
-     pred<-weightQuant::predict_WQ(object_boot=boot,
+     pred<-normativeBRAIN::predict_WQ(object_boot=boot,
                                    object_rq=rq,
                                    object_cov=boot_cov,newdata=newdata_male,tau=tau,level = 0.05)
-     pred_all_male<-weightQuant::data_plot(pred)
+     pred_all_male<-normativeBRAIN::data_plot(pred)
      
      newdata_female<-data.frame(time=(seq(input$AGE_VIS[1],input$AGE_VIS[2],length.out=100)-70)/9,
                               AGE_VIS_cr=(seq(input$AGE_VIS[1],input$AGE_VIS[2],length.out=100)-70)/9,
                               SEX=rep(1,100),
                               NUM_ID=rep(1,100))
-     pred<-weightQuant::predict_WQ(object_boot=boot,
+     pred<-normativeBRAIN::predict_WQ(object_boot=boot,
                                    object_rq=rq,
                                    object_cov=boot_cov,newdata=newdata_female,tau=tau,level = 0.05)
-     pred_all_female<-weightQuant::data_plot(pred)
+     pred_all_female<-normativeBRAIN::data_plot(pred)
      #tau_col<-c("purple","blue","black","red","brown")
      #tau_col<-tau_col[tau%in%as.numeric(input$tau)]
      #tau<-tau[tau%in%as.numeric(input$tau)]
@@ -322,8 +322,8 @@ server<-function(input, output) {
      
      # data <- read.csv("data/memento_SEXE_QYNAPSE_120122.txt", sep="")
      # data$AGE_VIS_cr<-(data$AGE_VIS-70)/9
-     # essai<-weightQuant::prepare_data(data=data,volume=my_data$volume,rescale=F)
-     # model_data<-weightQuant::weightsIMD(data=essai,Y=my_data$volume,X1=c("SEX","AGE0_cr"),
+     # essai<-normativeBRAIN::prepare_data(data=data,volume=my_data$volume,rescale=F)
+     # model_data<-normativeBRAIN::weightsIMD(data=essai,Y=my_data$volume,X1=c("SEX","AGE0_cr"),
      #                                     X2=NULL,subject="NUM_ID",
      #                                     death="death",time="time",name="w_imd")
      # 
@@ -342,10 +342,10 @@ server<-function(input, output) {
                               NUM_ID=rep(1,101))
      newdata$SEX<-as.numeric(newdata$SEX)
      
-     pred<-weightQuant::predict_WQ(object_boot=model$list_boot,
+     pred<-normativeBRAIN::predict_WQ(object_boot=model$list_boot,
                                    object_rq=model$list_rq,
                                    object_cov=model$list_cov,newdata=newdata,tau=tau,level = 0.05)
-     pred_all<-weightQuant::data_plot(pred)
+     pred_all<-normativeBRAIN::data_plot(pred)
      
      if(is.na(input$volume_value)|is.na(input$AGE_VIS_obs)|input$volume_value<0 | input$volume_value>100 | input$AGE_VIS_obs<50 | input$AGE_VIS_obs>90){
        pred_all$tau_appartenance<-NA
