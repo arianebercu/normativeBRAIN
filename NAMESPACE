@@ -1,4 +1,5 @@
-exportPattern("^[[:alpha:]]+")
+
+export(app)
 importFrom("quantreg","rq")
 import(stringr)
 import(splines)
@@ -16,4 +17,4 @@ importFrom("parallel","makeCluster","stopCluster")
 importFrom("doParallel","registerDoParallel")
 import(foreach)
 
-S3method(summary,bootwrq)
+useDynLib(normativeBRAIN)

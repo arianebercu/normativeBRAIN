@@ -15,7 +15,7 @@ library(ggplot2)
 library(ggExtra)
 library(splines)
 library(shinyWidgets)
-library(normativeBRAIN)
+#library(normativeBRAIN)
 
 ui<-fluidPage(
   navbarPage(title = " ",
